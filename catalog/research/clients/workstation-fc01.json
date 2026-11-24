@@ -74,8 +74,8 @@
       "kind": "processed",
       "coverage": "2020–2025 起报目录，26–31°N, 103–108°E",
       "format": "NetCDF",
-      "verification": "inventory",
-      "notes": "目录或数据库日期跨度内可能有缺期",
+      "verification": "sample_checked",
+      "notes": "两处可见目录合计抽查 18 项，12 项的大小和文件头匹配。目录日期跨度内仍可能缺期。",
       "task_id": "gfs-history"
     },
     {
@@ -108,7 +108,7 @@
       "coverage": "ZIP 成员起报日 2021-03-22 至 2025-12-31",
       "format": "ZIP",
       "verification": "inventory",
-      "notes": "中央目录内非空 fNNN.nc 按年 2021–2025 为 105819、42326、51574、135845、130628；内容待核",
+      "notes": "2021–2025 共 466,192 个不同起报×时效；15,060 个成员大小匹配当前 SQLite 完成记录。历史版本差异及压缩成员内容待核。",
       "task_id": "gfs-history"
     },
     {
@@ -182,7 +182,7 @@
       "coverage": "333 个 CMA 日期文件，2024-01-01 至 12-31，日期不连续",
       "format": "ZIP",
       "verification": "archive_checked",
-      "notes": "333 个 CMA 成员通过 ZIP CRC；逐报文语义及解包副本逐项比对待核",
+      "notes": "333 个 CMA 成员均通过 ZIP CRC，且按日期与当前 SQLite 完成项的文件大小匹配。逐报文语义待核。",
       "task_id": "tigge-cma-history"
     },
     {
@@ -802,9 +802,26 @@
           136152,
           135780
         ],
-        "method": "本机 SQLite 历史快照；对可见盘抽样核对，另清点 ZIP 成员目录"
+        "method": "本机 SQLite 历史快照；2020–2025 每年按日期抽查三个已标完成项，核对可见盘大小与 NetCDF 文件头；ZIP 成员只比中央目录",
+        "disk_sample_matches_by_year": [
+          3,
+          2,
+          1,
+          2,
+          2,
+          2
+        ],
+        "disk_sample_count_per_year": 3,
+        "archive_members_size_matching_db_by_year": [
+          0,
+          1138,
+          456,
+          10604,
+          1459,
+          1403
+        ]
       },
-      "gaps": "数据库 2020 缺 76,156、2021 缺 29,946、2022 缺 96；2023–2025 旧库已完成标记，需复核全部数据；2024 年有抽样完成项未在查验路径匹配。",
+      "gaps": "旧库 2020 缺 76,156、2021 缺 29,946、2022 缺 96。2023–2025 旧库标完成，跨盘抽查及 ZIP 大小出现差异，各年实际缺口待以现存副本的内容验收计算。",
       "workflow": "predict",
       "updated": "2026-11-16"
     },
