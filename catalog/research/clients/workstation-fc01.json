@@ -1,6 +1,6 @@
 {
   "client": "workstation-fc01",
-  "observed_at": "2026-11-24T17:49:06+08:00",
+  "observed_at": "2026-11-25T22:23:37+08:00",
   "scope_note": "项目代号按本机目录分组，业务归属待确认。inactive 表示清点时无对应本地 worker，可能仍有旧远端请求。历史记录 client 表示本机发现的任务归属，未领取新范围。",
   "assets": [
     {
@@ -8,10 +8,10 @@
       "storage_id": "predict-data",
       "relative_path": "raw/ecmwf_ifs_ens",
       "kind": "processed",
-      "coverage": "2025-01-01 至 02-12、07-02，各 00/12 UTC；0–55°N、72–137°E，0.25°",
+      "coverage": "2025-01-01 至 04-09 及 07-02，各 00/12 UTC；0–55°N、72–137°E，0.25°",
       "format": "NetCDF4",
       "verification": "verified",
-      "notes": "88 次起报各通过参考时间、维度和缺字段记录检查",
+      "notes": "200 次起报通过 NetCDF 缺字段记录检查。2025-02-28 流式样例核对全部轴和 1,275 个预报键。超过降水差分容差的格点保留为 NaN。",
       "task_id": "ifs-ens-2025"
     },
     {
@@ -751,14 +751,14 @@
       "client": "workstation-fc01",
       "status": "running",
       "progress": {
-        "verified": 88,
+        "verified": 200,
         "total": 730,
         "unit": "起报",
-        "method": "按 NetCDF 参考时间、维度和下载器缺字段记录核验"
+        "method": "按起报读取 NetCDF 参考时间和 missing_field_keys；样例另核对成员、时效、区域网格和变量值"
       },
-      "gaps": "快照余 642 次起报；运行中以 --inventory 为准",
+      "gaps": "盘点余 530 次起报，日期为 2025-04-10 至 07-01 及 07-03 至 12-31，均为 00/12 UTC。下载仍在运行，以本机 --inventory 为准。",
       "workflow": "ifs-ens",
-      "updated": "2026-11-24T17:49:06+08:00"
+      "updated": "2026-11-25T22:23:37+08:00"
     },
     {
       "id": "mars-regional",

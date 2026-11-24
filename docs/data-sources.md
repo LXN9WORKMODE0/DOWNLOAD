@@ -10,9 +10,9 @@
 
 ## ifs-ens
 
-从本地 Predict 根运行 `python download_ecmwf_ifs_ens.py --year 2025 --inventory` 只读查看起报范围。脚本按日期 × 00/12 UTC 即时生成任务，00 UTC 对接 Dynamical 的 0.25°公共档案，12 UTC 使用 ECMWF 公共镜像及 Source Cooperative GRIB 索引，按 HTTP Range 取报文。2025 年的任务不需要提供账户。依赖 Python、requests、numpy、ecCodes、netCDF4、dynamical-catalog 和其 Icechunk 依赖。源代码文件包含请求配置，环境、下载日志及 data/ 路径属于本机。
+从本地 Predict 根运行 `python download_ecmwf_ifs_ens.py --year 2025 --inventory` 只读查看起报覆盖和逐成员、时效缺项。脚本按日期 × 00/12 UTC 即时生成任务，00 UTC 自 2020-10-15 使用 Dynamical 的 0.25°分块档，2020-01-01 至 2020-10-14 使用 Source Cooperative 历史 GRIB 索引；12 UTC 从 2024-01-31 起使用 ECMWF Open Data 公共镜像。所有 GRIB 均用索引和 HTTP Range 读取。下载进程删除自身继承的代理环境变量，Requests 禁用环境代理，HTTPS 直连系统默认路由；此设置不更改 Windows 全局网络配置。2025 年的任务不需要提供账户。依赖 Python、requests、numpy、ecCodes、netCDF4、dynamical-catalog 和其 Icechunk 依赖。客户端下载器由 workstation-fc01 本地保管，环境、下载日志及 data/ 路径属于本机。
 
-共享范围为 72–137°E、0–55°N，0.25°，控制成员加 50 个扰动成员。2t 预报时效 0–72h，每 6h；tp 为 6 小时区间，共 12 段。原始字段被裁剪、整理为 NetCDF4。每次起报应有 1,275 个成员 × 变量/时效组合，验收使用 missing_field_keys，并核对参考时间、网格和成员/时效轴。读取 .part 时等待原进程完成写入。脚本会跳过任何非空正式文件。续跑先用 inventory 找出缺失、部分和不可读起报，核对原日志后将缺损文件移至单独目录，再按 --date 或 --start/--end 与 --cycles 补齐。当前进程退出且范围确认后，可从同一资产根以 `python download_ecmwf_ifs_ens.py --year 2025` 继续。
+共享范围为 72–137°E、0–55°N，0.25°，控制成员加 50 个扰动成员。2t 预报时效 0–72h，每 6h；tp 为 6 小时区间，共 12 段。源 GRIB 按时效流式裁剪和写入 NetCDF4，避免整日数组占用大块内存；每次起报应有 1,275 个成员 × 变量/时效组合。验收使用 missing_field_keys，并核对参考时间、网格和成员/时效轴。累计降水差超过 GRIB 舍入精度的格点保留为 NaN，不填零。读取 .part 时等待原进程完成写入。脚本会跳过任何非空正式文件。续跑先用 inventory 找出缺失、部分和不可读起报，核对原日志后将缺损文件移至单独目录，再按 --date 或 --start/--end 与 --cycles 补齐。当前进程退出且范围确认后，可从同一资产根以 `python download_ecmwf_ifs_ens.py --year 2025` 继续。
 
 ## predict
 
