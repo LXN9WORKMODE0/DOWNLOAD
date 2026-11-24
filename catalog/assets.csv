@@ -1,0 +1,15 @@
+task_id,storage_id,relative_path,status,bytes,fields,cycles,scope
+hydrodynamics-2024,ifs-pilot,full_range/hydrodynamics/surface/2024/tape_pilot_chunks/2024020100_2024020100.grib,pilot_verified,55079190,477,1,2024020100_2024020100
+hydrodynamics-2024,ifs-pilot,full_range/hydrodynamics/surface/2024/tape_pilot_chunks/2024020300_2024020612.grib,pilot_verified,440633520,3816,8,2024020300_2024020612
+hydrodynamics-2024,ifs-pilot,full_range/hydrodynamics/surface/2024/tape_pilot_chunks/2024120100_2024120100.grib,pilot_verified,75863790,657,1,2024120100_2024120100
+hydrodynamics-2024,ifs-pilot,full_range/hydrodynamics/surface/2024/tape_pilot_chunks/2024120300_2024120612.grib,pilot_verified,606910320,5256,8,2024120300_2024120612
+predict-prepared,predict-prepared,pilot_20240101_20240107/meteorology_pilot.nc,prepared_pilot,1567527,,,pilot_20240101_20240107
+predict-prepared,predict-prepared,pilot_20240101_20240630/meteorology_pilot.nc,prepared_pilot,26259187,,,pilot_20240101_20240630
+predict-prepared,predict-prepared,pilot_20240101_20240630/reference_meteorology.nc,prepared_pilot,14055173,,,pilot_20240101_20240630
+predict-prepared,predict-prepared,pilot_20240101_20240630_native6h/meteorology_pilot.nc,prepared_pilot,40120425,,,pilot_20240101_20240630_native6h
+predict-prepared,predict-prepared,pilot_20240101_20240630_stitched/meteorology_stitched_native6h.nc,prepared_pilot,19506021,,,pilot_20240101_20240630_stitched
+legacy-source,forecast-drive,ecmwf/data/raw/ecmwf_archive/oper,historical_inventory,,,,2026-10-10
+legacy-source,forecast-drive,ecmwf/data/raw/ecmwf_archive/scda,historical_inventory,,,,2026-10-10
+legacy-source,forecast-drive,gefs/data/raw/gefs,historical_inventory,,,,2026-10-10
+legacy-source,forecast-drive,gfs.zip,historical_inventory,,,,2026-10-10
+legacy-source,forecast-drive,tigge.zip,historical_inventory,,,,2026-10-10

@@ -1,0 +1,79 @@
+{
+  "year": 2024,
+  "observations": [
+    {
+      "month": 2,
+      "mode": "single",
+      "cycles": 1,
+      "tapes": 0,
+      "baseline_tapes": 0,
+      "list_calls": 1,
+      "list_s": 16.578,
+      "wait_to_active_s": null,
+      "archive_wait_and_service_s": null,
+      "transfer_s": null,
+      "bytes": 55079190,
+      "fields": 477,
+      "seconds_per_cycle": 158.032
+    },
+    {
+      "month": 2,
+      "mode": "expanded",
+      "cycles": 8,
+      "tapes": 0,
+      "baseline_tapes": 0,
+      "list_calls": 2,
+      "list_s": 71.406,
+      "wait_to_active_s": 42.093,
+      "archive_wait_and_service_s": 483.609,
+      "transfer_s": 325.344,
+      "bytes": 440633520,
+      "fields": 3816,
+      "seconds_per_cycle": 111.488
+    },
+    {
+      "month": 12,
+      "mode": "expanded",
+      "cycles": 8,
+      "tapes": 0,
+      "baseline_tapes": 0,
+      "list_calls": 2,
+      "list_s": 230.703,
+      "wait_to_active_s": 40.031,
+      "archive_wait_and_service_s": 955.515,
+      "transfer_s": 438.297,
+      "bytes": 606910320,
+      "fields": 5256,
+      "seconds_per_cycle": 204.828
+    },
+    {
+      "month": 12,
+      "mode": "single",
+      "cycles": 1,
+      "tapes": 0,
+      "baseline_tapes": 0,
+      "list_calls": 1,
+      "list_s": 10.36,
+      "wait_to_active_s": 2.25,
+      "archive_wait_and_service_s": 103.86,
+      "transfer_s": 54.984,
+      "bytes": 75863790,
+      "fields": 657,
+      "seconds_per_cycle": 177.61
+    }
+  ],
+  "comparisons": [
+    {
+      "month": 2,
+      "matched_tape_count": true,
+      "observed_wait_s_saved_per_cycle": null,
+      "observed_total_s_saved_per_cycle": 46.544
+    },
+    {
+      "month": 12,
+      "matched_tape_count": true,
+      "observed_wait_s_saved_per_cycle": -2.754,
+      "observed_total_s_saved_per_cycle": -27.218
+    }
+  ]
+}
