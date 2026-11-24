@@ -1,0 +1,13 @@
+.env
+.env.*
+.ecmwfapirc
+.venv/
+__pycache__/
+*.pyc
+output/
+*.grib
+*.grib2
+*.nc
+*.part
+*.jsonl
+.local/
