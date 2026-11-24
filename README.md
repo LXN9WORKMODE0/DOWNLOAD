@@ -9,6 +9,7 @@
 | 哪台设备在下哪一年 | [年度任务表](catalog/tasks.csv) |
 | 已有哪些文件，放在哪里 | [数据位置索引](catalog/assets.csv) |
 | 如何登记磁盘、领取任务和交接 | [多客户端使用说明](docs/clients.md) |
+| 多来源研究项目、数据储备与下载任务 | [研究数据目录](catalog/research/README.md) |
 | 如何复现测速、解释耗时 | [测速说明](docs/benchmark.md) · [四单实测结果](benchmarks/hydrodynamics-2024.json) |
 
 ## 五组清单

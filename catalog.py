@@ -9,6 +9,7 @@ from pathlib import Path, PurePosixPath, PureWindowsPath
 ROOT = Path(__file__).resolve().parent
 ASSETS = ROOT / "catalog" / "assets.csv"
 LOCATIONS = ROOT / ".local" / "locations.json"
+CLIENTS = ROOT / "catalog" / "research" / "clients"
 
 
 def local_path(paths, storage, relative):
@@ -31,6 +32,7 @@ def main():
     commands = parser.add_subparsers(dest="action", required=True)
     locate = commands.add_parser("locate")
     locate.add_argument("--task")
+    locate.add_argument("--client", choices=sorted(path.stem for path in CLIENTS.glob("*.json")))
     register = commands.add_parser("register-year")
     register.add_argument("group")
     register.add_argument("year", type=int)
@@ -41,6 +43,13 @@ def main():
         reader = csv.DictReader(f)
         columns, rows = reader.fieldnames, list(reader)
     if args.action == "locate":
+        if args.client:
+            client = json.loads((CLIENTS / f"{args.client}.json").read_text(encoding="utf-8"))
+            rows = [{
+                **asset,
+                "task_id": asset.get("task_id", asset["dataset"]),
+                "bytes": asset.get("bytes"),
+            } for asset in client["assets"]]
         for row in rows:
             if args.task and row["task_id"] != args.task:
                 continue

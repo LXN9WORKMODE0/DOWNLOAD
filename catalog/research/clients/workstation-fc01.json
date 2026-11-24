@@ -1,0 +1,1051 @@
+{
+  "client": "workstation-fc01",
+  "observed_at": "2026-11-24T17:49:06+08:00",
+  "scope_note": "项目代号按本机目录分组，业务归属待确认。inactive 表示清点时无对应本地 worker，可能仍有旧远端请求。历史记录 client 表示本机发现的任务归属，未领取新范围。",
+  "assets": [
+    {
+      "dataset": "ifs-ens",
+      "storage_id": "predict-data",
+      "relative_path": "raw/ecmwf_ifs_ens",
+      "kind": "processed",
+      "coverage": "2025-01-01 至 02-12、07-02，各 00/12 UTC；0–55°N、72–137°E，0.25°",
+      "format": "NetCDF4",
+      "verification": "verified",
+      "notes": "88 次起报各通过参考时间、维度和缺字段记录检查",
+      "task_id": "ifs-ens-2025"
+    },
+    {
+      "dataset": "ifs-open",
+      "storage_id": "predict-data",
+      "relative_path": "raw/ecmwf_ifs/20260812",
+      "kind": "raw",
+      "coverage": "2026-08-12 样例，全球源网格",
+      "format": "GRIB2 + JSON",
+      "verification": "inventory",
+      "notes": "发现文件与 SHA-256 清单"
+    },
+    {
+      "dataset": "ifs-mars",
+      "storage_id": "predict-data",
+      "relative_path": "raw/ecmwf_archive",
+      "kind": "source_subset",
+      "coverage": "2023–2024 区域 oper/scda 档案，26–31°N, 103–108°E",
+      "format": "GRIB2",
+      "verification": "sample_checked",
+      "notes": "数据库完成 762 批；有些批次在另一个存储位置，完整覆盖待逐批核对",
+      "task_id": "mars-regional"
+    },
+    {
+      "dataset": "ifs-mars",
+      "storage_id": "forecast-drive",
+      "relative_path": "ecmwf/data/raw/ecmwf_archive/oper",
+      "kind": "source_subset",
+      "coverage": "2023–2024，382 个按日期命名的批次",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "本机可访问；区域任务的 762 个已登记批次全部在可见盘找到大小匹配且首尾标识正常的文件",
+      "task_id": "mars-regional"
+    },
+    {
+      "dataset": "ifs-mars",
+      "storage_id": "forecast-drive",
+      "relative_path": "ecmwf/data/raw/ecmwf_archive/scda",
+      "kind": "source_subset",
+      "coverage": "2023–2024，380 个按日期命名的批次",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "本机可访问；区域任务的 762 个已登记批次全部在可见盘找到大小匹配且首尾标识正常的文件",
+      "task_id": "mars-regional"
+    },
+    {
+      "dataset": "ifs-mars",
+      "storage_id": "forecast-history",
+      "relative_path": "ecmwf_ifs",
+      "kind": "source_subset",
+      "coverage": "2020-01 的 oper/scda 瞬时及累计样例，另有测试文件",
+      "format": "GRIB",
+      "verification": "inventory",
+      "notes": "变量、空间覆盖及可用时效待解码"
+    },
+    {
+      "dataset": "gfs",
+      "storage_id": "predict-data",
+      "relative_path": "raw/gfs_rda",
+      "kind": "processed",
+      "coverage": "2020–2025 起报目录，26–31°N, 103–108°E",
+      "format": "NetCDF",
+      "verification": "inventory",
+      "notes": "目录或数据库日期跨度内可能有缺期",
+      "task_id": "gfs-history"
+    },
+    {
+      "dataset": "gfs",
+      "storage_id": "predict-data",
+      "relative_path": "raw/gfs/20260812",
+      "kind": "source_subset",
+      "coverage": "2026-08-12 样例，区域请求 26–31°N, 103–108°E",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "独立于历史任务",
+      "task_id": "gfs-history"
+    },
+    {
+      "dataset": "gfs",
+      "storage_id": "forecast-drive",
+      "relative_path": "gfs/data/raw",
+      "kind": "archive_extracted",
+      "coverage": "本机可访问，年度可从实际文件清单复核",
+      "format": "NetCDF / GRIB",
+      "verification": "inventory",
+      "notes": "旧解包位置",
+      "task_id": "gfs-history"
+    },
+    {
+      "dataset": "gfs",
+      "storage_id": "forecast-drive",
+      "relative_path": "gfs.zip",
+      "kind": "archive_copy",
+      "coverage": "ZIP 成员起报日 2021-03-22 至 2025-12-31",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "中央目录内非空 fNNN.nc 按年 2021–2025 为 105819、42326、51574、135845、130628；内容待核",
+      "task_id": "gfs-history"
+    },
+    {
+      "dataset": "gfs",
+      "storage_id": "research-volume",
+      "relative_path": "GFS",
+      "kind": "archive_copy",
+      "coverage": "7 个变量分包，文件名 2023012500，覆盖待核",
+      "format": "TAR",
+      "verification": "inventory",
+      "notes": "仅保存"
+    },
+    {
+      "dataset": "gefs",
+      "storage_id": "predict-data",
+      "relative_path": "raw/gefs",
+      "kind": "local_subset",
+      "coverage": "可见起报目录 2020、2021、2023–2025，26–31°N, 103–108°E",
+      "format": "GRIB2 + .complete.json",
+      "verification": "sample_checked",
+      "notes": "按起报 × 成员逐盘核实 65 时效和字节，按日期目录不能判断完整",
+      "task_id": "gefs-history"
+    },
+    {
+      "dataset": "gefs",
+      "storage_id": "forecast-drive",
+      "relative_path": "gefs/data/raw/gefs",
+      "kind": "local_subset",
+      "coverage": "543 个起报日目录，2024 有 357 个，2025-01-01 至 07-05 有 186 个",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "缺期和与其他盘的重叠待核",
+      "task_id": "gefs-history"
+    },
+    {
+      "dataset": "tigge-cma",
+      "storage_id": "predict-data",
+      "relative_path": "raw/tigge/cma",
+      "kind": "source_subset",
+      "coverage": "2023 年部分 306 个、2024 年部分 10 个，区域请求 26–31°N、103–108°E",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "2025 有已生成任务，文件完整覆盖待核",
+      "task_id": "tigge-cma-history"
+    },
+    {
+      "dataset": "tigge-ecmf",
+      "storage_id": "predict-data",
+      "relative_path": "raw/tigge/ecmf",
+      "kind": "source_subset",
+      "coverage": "2024 历史样例，26–31°N, 103–108°E",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "仅存储，旧队列已归档为历史"
+    },
+    {
+      "dataset": "tigge-kwbc",
+      "storage_id": "predict-data",
+      "relative_path": "raw/tigge/kwbc",
+      "kind": "source_subset",
+      "coverage": "2024 历史样例，26–31°N, 103–108°E",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "仅存储，旧队列已归档为历史"
+    },
+    {
+      "dataset": "tigge-cma",
+      "storage_id": "forecast-drive",
+      "relative_path": "tigge.zip",
+      "kind": "archive_copy",
+      "coverage": "333 个 CMA 日期文件，2024-01-01 至 12-31，日期不连续",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "已查 ZIP 中央目录；成员内容与解包位置需要逐项比对",
+      "task_id": "tigge-cma-history"
+    },
+    {
+      "dataset": "tigge-cma",
+      "storage_id": "forecast-history",
+      "relative_path": "cma_geps",
+      "kind": "temporary",
+      "coverage": "2 个 GRIB 临时文件，覆盖待核",
+      "format": "GRIB",
+      "verification": "inventory",
+      "notes": "临时文件不计入进度"
+    },
+    {
+      "dataset": "era5",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/era5_china_72_136_18_54_2020_2025/downloads/era5_2019-12.grib",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 全天 24 小时，18–54°N, 72–136°E 0.25°",
+      "format": "GRIB",
+      "verification": "verified",
+      "notes": "360 报文验收回执，现场复核 SHA-256",
+      "task_id": "era5-china"
+    },
+    {
+      "dataset": "era5-land",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/era5land_china_72_136_18_54_2020_2025/samples/era5land_2019-12-31.grib",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 全天样本，18–54°N, 72–136°E",
+      "format": "GRIB",
+      "verification": "sample_checked",
+      "notes": "原验证报告通过 360 报文；现场复查 SHA-256",
+      "task_id": "era5-land-sample"
+    },
+    {
+      "dataset": "era5",
+      "storage_id": "research-volume",
+      "relative_path": "ERA5",
+      "kind": "source_subset",
+      "coverage": "2023 年 12 个月；区域请求 26–31°N, 103–108°E",
+      "format": "ZIP 内小时 NetCDF",
+      "verification": "archive_checked",
+      "notes": "12/12 包通过 CRC；时间轴、变量和网格尚未逐包对请求"
+    },
+    {
+      "dataset": "era5-land",
+      "storage_id": "research-volume",
+      "relative_path": "ERA5_Downloads",
+      "kind": "source_subset",
+      "coverage": "2020–2025 年 72 月 × 4 变量组；区域请求 26–31°N, 103–108°E",
+      "format": "ZIP 内小时 NetCDF",
+      "verification": "archive_checked",
+      "notes": "288/288 包通过 CRC；年月小时轴与组内变量尚未逐包对请求",
+      "task_id": "era5-land-regional"
+    },
+    {
+      "dataset": "era5",
+      "storage_id": "research-volume",
+      "relative_path": "ERA5.rar",
+      "kind": "archive_copy",
+      "coverage": "候选区域备份，待查目录",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "候选副本，核对内容后确认"
+    },
+    {
+      "dataset": "era5-land",
+      "storage_id": "research-volume",
+      "relative_path": "ERA5_Downloads.rar",
+      "kind": "archive_copy",
+      "coverage": "候选区域备份，待查目录",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "候选副本，核对内容后确认"
+    },
+    {
+      "dataset": "gldas",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/china_mainland_72_136_18_54_2020_2025/downloads/GLDAS_NOAH025_3H",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，17,552 个 3h 文件",
+      "format": "NetCDF4",
+      "verification": "verified",
+      "notes": "全量文件存在、大小及修改时间匹配原逐变量验收记录",
+      "task_id": "gldas-china"
+    },
+    {
+      "dataset": "gldas",
+      "storage_id": "earthdata-data",
+      "relative_path": "downloads/GLDAS_NOAH025_3H",
+      "kind": "source_subset",
+      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "format": "NetCDF4",
+      "verification": "sample_checked",
+      "notes": "首日文件头符合变量和区域，逐时目标待全量核对",
+      "task_id": "earthdata-regional"
+    },
+    {
+      "dataset": "gldas",
+      "storage_id": "research-volume",
+      "relative_path": "GLDAS103-108 26-31",
+      "kind": "source_subset",
+      "coverage": "2023-01-01 至 2024-01-01，2,928 个 3h 文件；样本 103.125–107.875°E、26.125–30.875°N",
+      "format": "NetCDF4",
+      "verification": "sample_checked",
+      "notes": "样本 10 个气象变量，未查全量可读性"
+    },
+    {
+      "dataset": "gldas",
+      "storage_id": "research-volume",
+      "relative_path": "GLDAS104-107 27-30",
+      "kind": "source_subset",
+      "coverage": "2023-01-01 至 2024-01-01，2,928 个 3h 文件；样本 104.125–106.875°E、27.125–29.875°N",
+      "format": "NetCDF4",
+      "verification": "sample_checked",
+      "notes": "样本另有 0–10、10–40、40–100cm 三层土温"
+    },
+    {
+      "dataset": "gldas",
+      "storage_id": "research-volume",
+      "relative_path": "GLDAS2020-2024",
+      "kind": "source_subset",
+      "coverage": "2020-01-01 至 2025-01-01，14,624 个 3h 文件；样本 103.125–107.875°E、27.125–29.875°N",
+      "format": "NetCDF4",
+      "verification": "sample_checked",
+      "notes": "样本含 40–100cm 土温"
+    },
+    {
+      "dataset": "gldas",
+      "storage_id": "research-volume",
+      "relative_path": "GLDAS2020-2024.zip",
+      "kind": "archive_copy",
+      "coverage": "ZIP 目录可见上述 2020–2024 资产",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "可访问，未全量比较 CRC 和解包目录"
+    },
+    {
+      "dataset": "gldas",
+      "storage_id": "research-volume",
+      "relative_path": "GLDAS103-108 26-31.rar",
+      "kind": "archive_copy",
+      "coverage": "候选 2023 区域备份",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "可访问，副本内容待核"
+    },
+    {
+      "dataset": "m2i1nxasm",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/china_mainland_72_136_18_54_2020_2025/downloads/MERRA-2/M2I1NXASM",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，2,194 个日期文件",
+      "format": "NetCDF4",
+      "verification": "verified",
+      "notes": "所有文件的大小及修改时间匹配原逐变量验收记录",
+      "task_id": "m2i1nxasm-china"
+    },
+    {
+      "dataset": "m2i1nxasm",
+      "storage_id": "earthdata-data",
+      "relative_path": "downloads/MERRA-2/M2I1NXASM",
+      "kind": "source_subset",
+      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "task_id": "earthdata-regional"
+    },
+    {
+      "dataset": "m2i1nxasm",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024/M2I1NXASM",
+      "kind": "source_subset",
+      "coverage": "2020-01-01 至 2025-01-01，1,828 个按日命名文件；FLX 样本为 103.125–107.5°E、27–30°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "各产品以数据集索引变量为待核参照"
+    },
+    {
+      "dataset": "m2i1nxasm",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024.zip",
+      "kind": "archive_copy",
+      "coverage": "ZIP 可见 2020–2024 年各产品目录",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "按产品共用同一个压缩包路径；副本内容待核"
+    },
+    {
+      "dataset": "m2i1nxasm",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2/M2I1NXASM",
+      "kind": "source_subset",
+      "coverage": "2023-01-01 至 2024-01-01，366 个按日命名文件；FLX 样本为 103.125–107.5°E、26–31°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "按文件名核对首尾及数量"
+    },
+    {
+      "dataset": "m2i1nxasm",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2.rar",
+      "kind": "archive_copy",
+      "coverage": "候选 2023 区域备份",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "各产品待对照压缩包目录"
+    },
+    {
+      "dataset": "m2t1nxflx",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/china_mainland_72_136_18_54_2020_2025/downloads/MERRA-2/M2T1NXFLX",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，2,194 个日期文件",
+      "format": "NetCDF4",
+      "verification": "verified",
+      "notes": "所有文件的大小及修改时间匹配原逐变量验收记录",
+      "task_id": "m2t1nxflx-china"
+    },
+    {
+      "dataset": "m2t1nxflx",
+      "storage_id": "earthdata-data",
+      "relative_path": "downloads/MERRA-2/M2T1NXFLX",
+      "kind": "source_subset",
+      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "task_id": "earthdata-regional"
+    },
+    {
+      "dataset": "m2t1nxflx",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024/M2T1NXFLX",
+      "kind": "source_subset",
+      "coverage": "2020-01-01 至 2025-01-01，1,828 个按日命名文件；FLX 样本为 103.125–107.5°E、27–30°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "各产品以数据集索引变量为待核参照"
+    },
+    {
+      "dataset": "m2t1nxflx",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024.zip",
+      "kind": "archive_copy",
+      "coverage": "ZIP 可见 2020–2024 年各产品目录",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "按产品共用同一个压缩包路径；副本内容待核"
+    },
+    {
+      "dataset": "m2t1nxflx",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2/M2T1NXFLX",
+      "kind": "source_subset",
+      "coverage": "2023-01-01 至 2024-01-01，366 个按日命名文件；FLX 样本为 103.125–107.5°E、26–31°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "按文件名核对首尾及数量"
+    },
+    {
+      "dataset": "m2t1nxflx",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2.rar",
+      "kind": "archive_copy",
+      "coverage": "候选 2023 区域备份",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "各产品待对照压缩包目录"
+    },
+    {
+      "dataset": "m2t1nxlnd",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/china_mainland_72_136_18_54_2020_2025/downloads/MERRA-2/M2T1NXLND",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，2,194 个日期文件",
+      "format": "NetCDF4",
+      "verification": "verified",
+      "notes": "所有文件的大小及修改时间匹配原逐变量验收记录",
+      "task_id": "m2t1nxlnd-china"
+    },
+    {
+      "dataset": "m2t1nxlnd",
+      "storage_id": "earthdata-data",
+      "relative_path": "downloads/MERRA-2/M2T1NXLND",
+      "kind": "source_subset",
+      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "task_id": "earthdata-regional"
+    },
+    {
+      "dataset": "m2t1nxlnd",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024/M2T1NXLND",
+      "kind": "source_subset",
+      "coverage": "2020-01-01 至 2025-01-01，1,828 个按日命名文件；FLX 样本为 103.125–107.5°E、27–30°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "各产品以数据集索引变量为待核参照"
+    },
+    {
+      "dataset": "m2t1nxlnd",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024.zip",
+      "kind": "archive_copy",
+      "coverage": "ZIP 可见 2020–2024 年各产品目录",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "按产品共用同一个压缩包路径；副本内容待核"
+    },
+    {
+      "dataset": "m2t1nxrad",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/china_mainland_72_136_18_54_2020_2025/downloads/MERRA-2/M2T1NXRAD",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，2,194 个日期文件",
+      "format": "NetCDF4",
+      "verification": "verified",
+      "notes": "所有文件的大小及修改时间匹配原逐变量验收记录",
+      "task_id": "m2t1nxrad-china"
+    },
+    {
+      "dataset": "m2t1nxrad",
+      "storage_id": "earthdata-data",
+      "relative_path": "downloads/MERRA-2/M2T1NXRAD",
+      "kind": "source_subset",
+      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "task_id": "earthdata-regional"
+    },
+    {
+      "dataset": "m2t1nxrad",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024/M2T1NXRAD",
+      "kind": "source_subset",
+      "coverage": "2020-01-01 至 2025-01-01，1,828 个按日命名文件；FLX 样本为 103.125–107.5°E、27–30°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "各产品以数据集索引变量为待核参照"
+    },
+    {
+      "dataset": "m2t1nxrad",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024.zip",
+      "kind": "archive_copy",
+      "coverage": "ZIP 可见 2020–2024 年各产品目录",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "按产品共用同一个压缩包路径；副本内容待核"
+    },
+    {
+      "dataset": "m2t1nxrad",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2/M2T1NXRAD",
+      "kind": "source_subset",
+      "coverage": "2023-01-01 至 2024-01-01，366 个按日命名文件；FLX 样本为 103.125–107.5°E、26–31°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "按文件名核对首尾及数量"
+    },
+    {
+      "dataset": "m2t1nxrad",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2.rar",
+      "kind": "archive_copy",
+      "coverage": "候选 2023 区域备份",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "各产品待对照压缩包目录"
+    },
+    {
+      "dataset": "m2t1nxslv",
+      "storage_id": "earthdata-data",
+      "relative_path": "runs/china_mainland_72_136_18_54_2020_2025/downloads/MERRA-2/M2T1NXSLV",
+      "kind": "source_subset",
+      "coverage": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，2,194 个日期文件",
+      "format": "NetCDF4",
+      "verification": "verified",
+      "notes": "所有文件的大小及修改时间匹配原逐变量验收记录",
+      "task_id": "m2t1nxslv-china"
+    },
+    {
+      "dataset": "m2t1nxslv",
+      "storage_id": "earthdata-data",
+      "relative_path": "downloads/MERRA-2/M2T1NXSLV",
+      "kind": "source_subset",
+      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "task_id": "earthdata-regional"
+    },
+    {
+      "dataset": "m2t1nxslv",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024/M2T1NXSLV",
+      "kind": "source_subset",
+      "coverage": "2020-01-01 至 2025-01-01，1,828 个按日命名文件；FLX 样本为 103.125–107.5°E、27–30°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "各产品以数据集索引变量为待核参照"
+    },
+    {
+      "dataset": "m2t1nxslv",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-22020-2024.zip",
+      "kind": "archive_copy",
+      "coverage": "ZIP 可见 2020–2024 年各产品目录",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "按产品共用同一个压缩包路径；副本内容待核"
+    },
+    {
+      "dataset": "m2t1nxslv",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2/M2T1NXSLV",
+      "kind": "source_subset",
+      "coverage": "2023-01-01 至 2024-01-01，366 个按日命名文件；FLX 样本为 103.125–107.5°E、26–31°N",
+      "format": "NetCDF4",
+      "verification": "inventory",
+      "notes": "按文件名核对首尾及数量"
+    },
+    {
+      "dataset": "m2t1nxslv",
+      "storage_id": "research-volume",
+      "relative_path": "MERRA-2.rar",
+      "kind": "archive_copy",
+      "coverage": "候选 2023 区域备份",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "各产品待对照压缩包目录"
+    },
+    {
+      "dataset": "gdas-fnl",
+      "storage_id": "research-volume",
+      "relative_path": "gdas",
+      "kind": "raw",
+      "coverage": "2020-01-01 00 至 2025-01-01 00，14,596 个 GRIB2 与等量 .idx；以文件名为准",
+      "format": "GRIB2 + IDX",
+      "verification": "inventory",
+      "notes": "f00/f03，临界时次和缺期需按原目标对照；变量和实际空间覆盖待解码"
+    },
+    {
+      "dataset": "cmfd",
+      "storage_id": "research-volume",
+      "relative_path": "cmfd",
+      "kind": "source_subset",
+      "coverage": "437 个 0.1° NetCDF，日聚合 2020–2024，3h 组别覆盖各异，另有静态高程",
+      "format": "NetCDF",
+      "verification": "inventory",
+      "notes": "lrad、prec、pres、rhum、shum、srad、temp、wind、elev；部分 3h 组仅见 2023–2024 或 2024；空间范围待读取坐标"
+    },
+    {
+      "dataset": "cmfd",
+      "storage_id": "research-volume",
+      "relative_path": "cmfd.zip",
+      "kind": "archive_copy",
+      "coverage": "候选 CMFD 备份",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "副本内容待核"
+    },
+    {
+      "dataset": "cra40-land",
+      "storage_id": "research-volume",
+      "relative_path": "CMARA2026",
+      "kind": "source_subset",
+      "coverage": "文件名 2020-01-01 00 至 04-15 00，2,112 个；0.25° GLB",
+      "format": "NetCDF / GRIB",
+      "verification": "inventory",
+      "notes": "同时存放 CLDAS；按产品查前缀，字段及实测空间覆盖待核"
+    },
+    {
+      "dataset": "cldas",
+      "storage_id": "research-volume",
+      "relative_path": "CMARA2026",
+      "kind": "source_subset",
+      "coverage": "2026-05-14 11 至 05-15 11，25 个小时片；0.0625° ASI，TMP",
+      "format": "NetCDF",
+      "verification": "inventory",
+      "notes": "同存 CRA40-Land；范围由文件名标记，坐标待核"
+    },
+    {
+      "dataset": "cra40-land",
+      "storage_id": "research-volume",
+      "relative_path": "CMARA2026.rar",
+      "kind": "archive_copy",
+      "coverage": "混合产品候选备份",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "副本内容待核"
+    },
+    {
+      "dataset": "cldas",
+      "storage_id": "research-volume",
+      "relative_path": "CMARA2026.rar",
+      "kind": "archive_copy",
+      "coverage": "混合产品候选备份",
+      "format": "RAR",
+      "verification": "inventory",
+      "notes": "副本内容待核"
+    },
+    {
+      "dataset": "forcing-grid",
+      "storage_id": "research-volume",
+      "relative_path": "1km栅格数据",
+      "kind": "archive_copy",
+      "coverage": "13 包，文件名范围 2020-01-01 至 2026-01-01；空间范围未确认",
+      "format": "ZIP",
+      "verification": "inventory",
+      "notes": "额外 2025 年初日包，内部文件待核"
+    },
+    {
+      "dataset": "model-inputs",
+      "storage_id": "research-volume",
+      "relative_path": "MIKE_POST",
+      "kind": "processed",
+      "coverage": "文件名包含 2020–2024、2023 年水位、水质、水温和处理结果",
+      "format": "DFS0 / PNG / XLSX",
+      "verification": "inventory",
+      "notes": "时间轴、站点待核"
+    },
+    {
+      "dataset": "model-inputs",
+      "storage_id": "model-storage",
+      "relative_path": "MIKE",
+      "kind": "research_material",
+      "coverage": "模型输入与工程，时间和空间范围待核",
+      "format": "工程目录",
+      "verification": "inventory",
+      "notes": "保存在本机"
+    },
+    {
+      "dataset": "model-inputs",
+      "storage_id": "model-storage",
+      "relative_path": "TDG",
+      "kind": "research_material",
+      "coverage": "模型版本和研究资料，时间和空间范围待核",
+      "format": "工程目录",
+      "verification": "inventory",
+      "notes": "保存在本机"
+    },
+    {
+      "dataset": "tigge-cma",
+      "storage_id": "forecast-drive",
+      "relative_path": "tigge/data/raw/tigge/cma",
+      "kind": "archive_extracted",
+      "coverage": "2024 年部分 333 个日期文件",
+      "format": "GRIB2",
+      "verification": "inventory",
+      "notes": "按文件名清点；同年份部分另存 predict-data",
+      "task_id": "tigge-cma-history"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ifs-ens-2025",
+      "project": "r-fcst",
+      "dataset": "ifs-ens",
+      "target": "2025 全年，00/12 UTC，0–72h 每 6h，51 成员、2t/tp",
+      "client": "workstation-fc01",
+      "status": "running",
+      "progress": {
+        "verified": 88,
+        "total": 730,
+        "unit": "起报",
+        "method": "按 NetCDF 参考时间、维度和下载器缺字段记录核验"
+      },
+      "gaps": "快照余 642 次起报；运行中以 --inventory 为准",
+      "workflow": "ifs-ens",
+      "updated": "2026-11-24T17:49:06+08:00"
+    },
+    {
+      "id": "mars-regional",
+      "project": "r-fcst",
+      "dataset": "ifs-mars",
+      "target": "2023–2024，oper/scda 区域档案",
+      "client": "workstation-fc01",
+      "status": "inactive",
+      "progress": {
+        "unit": "批次",
+        "verified": 762,
+        "total": 1332,
+        "method": "2023 197 批及 2024 565 批均跨盘匹配 SQLite 字节数和 GRIB 首尾标识；逐报文字段待核"
+      },
+      "gaps": "按 SQLite 余 570 批，含 2 个历史远端待返回批；日期覆盖和重叠待展开",
+      "workflow": "predict",
+      "updated": "2026-11-16"
+    },
+    {
+      "id": "gfs-history",
+      "project": "r-fcst",
+      "dataset": "gfs",
+      "target": "2020–2025 起报×时效，2023 时效规则单独",
+      "client": "workstation-fc01",
+      "status": "inactive",
+      "progress": {
+        "unit": "起报×时效",
+        "database_done_by_year": [
+          59996,
+          105834,
+          135684,
+          59130,
+          136152,
+          135780
+        ],
+        "total_by_year": [
+          136152,
+          135780,
+          135780,
+          59130,
+          136152,
+          135780
+        ],
+        "method": "本机 SQLite 历史快照；文件核验逐盘计"
+      },
+      "gaps": "数据库 2020 缺 76,156、2021 缺 29,946、2022 缺 96；2023–2025 旧库已完成标记，需复核全部数据",
+      "workflow": "predict",
+      "updated": "2026-11-16"
+    },
+    {
+      "id": "gefs-history",
+      "project": "r-fcst",
+      "dataset": "gefs",
+      "target": "2020–2025 起报×成员，65 个时效/任务",
+      "client": "workstation-fc01",
+      "status": "inactive",
+      "progress": {
+        "unit": "起报×成员",
+        "database_done_by_year": [
+          11395,
+          3185,
+          0,
+          45239,
+          44100,
+          45260
+        ],
+        "total_by_year": [
+          45384,
+          45260,
+          45260,
+          45260,
+          45384,
+          45260
+        ],
+        "method": "SQLite 旧队列；2020、2021、2023–2025 各抽 3 个完成成员，65 时效及总字节均匹配",
+        "sample_groups_matching_receipts": 15
+      },
+      "gaps": "数据库各年剩余 33,989 / 42,075 / 45,260 / 21 / 1,284 / 0；还需核对归档可用性与本机副本",
+      "workflow": "predict",
+      "updated": "2026-11-16"
+    },
+    {
+      "id": "tigge-cma-history",
+      "project": "r-fcst",
+      "dataset": "tigge-cma",
+      "target": "2023–2025 CMA 控制成员，按日期",
+      "client": "workstation-fc01",
+      "status": "inactive",
+      "progress": {
+        "unit": "日期批次",
+        "database_done_by_year": [
+          306,
+          343,
+          0
+        ],
+        "total_by_year": [
+          365,
+          366,
+          365
+        ],
+        "method": "两处可访问目录按日期文件清点；另见 SQLite 旧队列",
+        "observed_local_files_by_year": [
+          306,
+          343,
+          0
+        ]
+      },
+      "gaps": "数据库每年待核 59 / 23 / 365 批；旧远端订单实时状态待核",
+      "workflow": "predict",
+      "updated": "2026-11-16"
+    },
+    {
+      "id": "era5-china",
+      "project": "r-forcing",
+      "dataset": "era5",
+      "target": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，小时 GRIB",
+      "client": "workstation-fc01",
+      "status": "inactive",
+      "progress": {
+        "verified": 1,
+        "total": 74,
+        "unit": "月包或缓冲日",
+        "hours_verified": 24,
+        "hours_total": 52656,
+        "method": "逐报文验收，SHA-256 复查"
+      },
+      "gaps": "2020–2025 的 72 月与 2026-01-01；1 月旧 CDS 请求状态待查",
+      "workflow": "cds",
+      "updated": "2026-11-16"
+    },
+    {
+      "id": "era5-land-sample",
+      "project": "r-forcing",
+      "dataset": "era5-land",
+      "target": "2019-12-31、2020-01-01、2020-07-01，18–54°N, 72–136°E 三个样本",
+      "client": "workstation-fc01",
+      "status": "paused",
+      "progress": {
+        "verified": 1,
+        "total": 3,
+        "unit": "日样本",
+        "method": "原验证报告通过 360 报文，现场复查 SHA-256"
+      },
+      "gaps": "另外 2 个日样本的旧请求状态待核；全量任务负责人和目标待确认",
+      "workflow": "cds",
+      "updated": "2026-11-16"
+    },
+    {
+      "id": "era5-land-regional",
+      "project": "r-forcing",
+      "dataset": "era5-land",
+      "target": "已存 2020–2025，四个变量组/月",
+      "client": "workstation-fc01",
+      "status": "stored",
+      "progress": {
+        "archive_checked": 288,
+        "observed": 288,
+        "unit": "变量组×月",
+        "method": "本机对各 ZIP 成员测试 CRC"
+      },
+      "gaps": "小时轴和请求变量未逐包核对；是否需要补取待确认",
+      "workflow": "cds",
+      "updated": "2026-11-24"
+    },
+    {
+      "id": "gldas-china",
+      "project": "r-forcing",
+      "dataset": "gldas",
+      "target": "18–54°N, 72–136°E，2019-12-31 至 2026-01-01，11 变量",
+      "client": "workstation-fc01",
+      "status": "complete",
+      "progress": {
+        "verified": 17552,
+        "total": 17552,
+        "unit": "3h 文件",
+        "method": "逐文件匹配 Harmony 验收回执"
+      },
+      "gaps": "0",
+      "workflow": "earthdata",
+      "updated": "2026-11-10"
+    },
+    {
+      "id": "m2i1nxasm-china",
+      "project": "r-forcing",
+      "dataset": "m2i1nxasm",
+      "target": "18–54°N, 72–136°E，2019-12-31 至 2026-01-01，M2I1NXASM",
+      "client": "workstation-fc01",
+      "status": "complete",
+      "progress": {
+        "verified": 2194,
+        "total": 2194,
+        "unit": "产品×日",
+        "method": "逐文件匹配 Harmony 验收回执"
+      },
+      "gaps": "0",
+      "workflow": "earthdata",
+      "updated": "2026-11-10"
+    },
+    {
+      "id": "m2t1nxflx-china",
+      "project": "r-forcing",
+      "dataset": "m2t1nxflx",
+      "target": "18–54°N, 72–136°E，2019-12-31 至 2026-01-01，M2T1NXFLX",
+      "client": "workstation-fc01",
+      "status": "complete",
+      "progress": {
+        "verified": 2194,
+        "total": 2194,
+        "unit": "产品×日",
+        "method": "逐文件匹配 Harmony 验收回执"
+      },
+      "gaps": "0",
+      "workflow": "earthdata",
+      "updated": "2026-11-10"
+    },
+    {
+      "id": "m2t1nxlnd-china",
+      "project": "r-forcing",
+      "dataset": "m2t1nxlnd",
+      "target": "18–54°N, 72–136°E，2019-12-31 至 2026-01-01，M2T1NXLND",
+      "client": "workstation-fc01",
+      "status": "complete",
+      "progress": {
+        "verified": 2194,
+        "total": 2194,
+        "unit": "产品×日",
+        "method": "逐文件匹配 Harmony 验收回执"
+      },
+      "gaps": "0",
+      "workflow": "earthdata",
+      "updated": "2026-11-10"
+    },
+    {
+      "id": "m2t1nxrad-china",
+      "project": "r-forcing",
+      "dataset": "m2t1nxrad",
+      "target": "18–54°N, 72–136°E，2019-12-31 至 2026-01-01，M2T1NXRAD",
+      "client": "workstation-fc01",
+      "status": "complete",
+      "progress": {
+        "verified": 2194,
+        "total": 2194,
+        "unit": "产品×日",
+        "method": "逐文件匹配 Harmony 验收回执"
+      },
+      "gaps": "0",
+      "workflow": "earthdata",
+      "updated": "2026-11-10"
+    },
+    {
+      "id": "m2t1nxslv-china",
+      "project": "r-forcing",
+      "dataset": "m2t1nxslv",
+      "target": "18–54°N, 72–136°E，2019-12-31 至 2026-01-01，M2T1NXSLV",
+      "client": "workstation-fc01",
+      "status": "complete",
+      "progress": {
+        "verified": 2194,
+        "total": 2194,
+        "unit": "产品×日",
+        "method": "逐文件匹配 Harmony 验收回执"
+      },
+      "gaps": "0",
+      "workflow": "earthdata",
+      "updated": "2026-11-10"
+    },
+    {
+      "id": "earthdata-regional",
+      "project": "r-forcing",
+      "dataset": [
+        "gldas",
+        "m2i1nxasm",
+        "m2t1nxflx",
+        "m2t1nxlnd",
+        "m2t1nxrad",
+        "m2t1nxslv"
+      ],
+      "target": "26–31°N, 103–108°E，区域清单为 2019-12-31 至 2026-01-01",
+      "client": "workstation-fc01",
+      "status": "stored",
+      "progress": {
+        "unit": "3h 文件 / 产品×日",
+        "method": "目前按区域目录与样本登记"
+      },
+      "gaps": "区域逐产品有效空间网格、缺期和负责人需确认",
+      "workflow": "earthdata",
+      "updated": "2026-11-24"
+    }
+  ]
+}

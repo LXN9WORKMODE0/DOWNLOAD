@@ -1,0 +1,325 @@
+{
+  "projects": [
+    {
+      "id": "r-fcst",
+      "name": "预报研究",
+      "association": "本机脚本及产物，正式项目归属待确认",
+      "datasets": [
+        "ifs-mars",
+        "ifs-open",
+        "ifs-ens",
+        "gfs",
+        "gefs",
+        "tigge-cma",
+        "tigge-ecmf",
+        "tigge-kwbc"
+      ]
+    },
+    {
+      "id": "r-forcing",
+      "name": "气象驱动资料研究",
+      "association": "本机数据目录及请求说明，正式项目归属待确认",
+      "datasets": [
+        "era5",
+        "era5-land",
+        "gldas",
+        "m2i1nxasm",
+        "m2t1nxflx",
+        "m2t1nxlnd",
+        "m2t1nxrad",
+        "m2t1nxslv",
+        "gdas-fnl",
+        "cmfd",
+        "cra40-land",
+        "cldas",
+        "forcing-grid"
+      ]
+    },
+    {
+      "id": "r-model",
+      "name": "模型资料研究",
+      "association": "本机工程及输出目录，正式项目归属待确认",
+      "datasets": [
+        "model-inputs"
+      ]
+    },
+    {
+      "id": "hydrodynamics",
+      "name": "ECMWF hydrodynamics 组",
+      "association": "仓库已有方案中的研究分组",
+      "datasets": [
+        "ifs-mars"
+      ],
+      "task_index": "../tasks.csv"
+    },
+    {
+      "id": "hydrology",
+      "name": "ECMWF hydrology 组",
+      "association": "仓库已有方案中的研究分组",
+      "datasets": [
+        "ifs-mars"
+      ],
+      "task_index": "../tasks.csv"
+    },
+    {
+      "id": "energy",
+      "name": "ECMWF energy 组",
+      "association": "仓库已有方案中的研究分组",
+      "datasets": [
+        "ifs-mars"
+      ],
+      "task_index": "../tasks.csv"
+    },
+    {
+      "id": "weather",
+      "name": "ECMWF weather 组",
+      "association": "仓库已有方案中的研究分组",
+      "datasets": [
+        "ifs-mars"
+      ],
+      "task_index": "../tasks.csv"
+    },
+    {
+      "id": "shipping",
+      "name": "ECMWF shipping 组",
+      "association": "仓库已有方案中的研究分组",
+      "datasets": [
+        "ifs-mars"
+      ],
+      "task_index": "../tasks.csv"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "ifs-mars",
+      "source": "ECMWF",
+      "product": "IFS operational archive (MARS)",
+      "version": "随起报日期变化",
+      "type": "业务确定性预报",
+      "workflow": "ifs-mars"
+    },
+    {
+      "id": "ifs-open",
+      "source": "ECMWF",
+      "product": "IFS Open Data",
+      "version": "随起报日期变化",
+      "type": "业务确定性预报",
+      "workflow": "predict"
+    },
+    {
+      "id": "ifs-ens",
+      "source": "ECMWF / Dynamical",
+      "product": "IFS ENS 0.25°",
+      "version": "随起报日期变化",
+      "type": "集合预报",
+      "workflow": "ifs-ens"
+    },
+    {
+      "id": "gfs",
+      "source": "NOAA NCEP / NSF NCAR GDEX",
+      "product": "GFS 0.25°",
+      "version": "随起报日期变化",
+      "type": "业务确定性预报",
+      "workflow": "predict"
+    },
+    {
+      "id": "gefs",
+      "source": "NOAA NCEP",
+      "product": "GEFS 0.5° pgrb2ap5 / pgrb2bp5",
+      "version": "GEFS v12 时期；早期归档可用性按源核对",
+      "type": "集合预报",
+      "workflow": "predict"
+    },
+    {
+      "id": "tigge-cma",
+      "source": "ECMWF ECDS / CMA",
+      "product": "TIGGE cma",
+      "version": "业务版本随起报变化",
+      "type": "集合预报历史档案",
+      "workflow": "predict"
+    },
+    {
+      "id": "tigge-ecmf",
+      "source": "ECMWF ECDS / ECMWF",
+      "product": "TIGGE ecmf",
+      "version": "业务版本随起报变化",
+      "type": "集合预报历史档案",
+      "workflow": "predict"
+    },
+    {
+      "id": "tigge-kwbc",
+      "source": "ECMWF ECDS / NCEP",
+      "product": "TIGGE kwbc",
+      "version": "业务版本随起报变化",
+      "type": "集合预报历史档案",
+      "workflow": "predict"
+    },
+    {
+      "id": "era5",
+      "source": "Copernicus CDS / ECMWF",
+      "product": "reanalysis-era5-single-levels",
+      "version": "ERA5",
+      "type": "大气再分析，单层",
+      "workflow": "cds"
+    },
+    {
+      "id": "era5-land",
+      "source": "Copernicus CDS / ECMWF",
+      "product": "reanalysis-era5-land",
+      "version": "ERA5-Land",
+      "type": "陆面再分析",
+      "workflow": "cds"
+    },
+    {
+      "id": "gldas",
+      "source": "NASA GES DISC",
+      "product": "GLDAS_NOAH025_3H",
+      "version": "2.1",
+      "type": "Noah 陆面同化，0.25° / 3h",
+      "workflow": "earthdata",
+      "collection": "C1342986035-GES_DISC",
+      "harmony_variables": [
+        "LWdown_f_tavg",
+        "Lwnet_tavg",
+        "Psurf_f_inst",
+        "Qair_f_inst",
+        "Rainf_f_tavg",
+        "Rainf_tavg",
+        "SoilTMP40_100cm_inst",
+        "SWdown_f_tavg",
+        "Swnet_tavg",
+        "Tair_f_inst",
+        "Wind_f_inst"
+      ]
+    },
+    {
+      "id": "m2i1nxasm",
+      "source": "NASA GES DISC",
+      "product": "M2I1NXASM",
+      "version": "5.12.4",
+      "type": "MERRA-2 大气再分析，0.5°纬 × 0.625°经，日文件内逐小时",
+      "workflow": "earthdata",
+      "collection": "C1276812820-GES_DISC",
+      "harmony_variables": [
+        "PS",
+        "QV2M",
+        "T2M",
+        "U10M",
+        "V10M"
+      ]
+    },
+    {
+      "id": "m2t1nxflx",
+      "source": "NASA GES DISC",
+      "product": "M2T1NXFLX",
+      "version": "5.12.4",
+      "type": "MERRA-2 大气再分析，0.5°纬 × 0.625°经，日文件内逐小时",
+      "workflow": "earthdata",
+      "collection": "C1276812838-GES_DISC",
+      "harmony_variables": [
+        "PRECTOT",
+        "PRECTOTCORR",
+        "QLML",
+        "TLML",
+        "ULML",
+        "VLML"
+      ]
+    },
+    {
+      "id": "m2t1nxlnd",
+      "source": "NASA GES DISC",
+      "product": "M2T1NXLND",
+      "version": "5.12.4",
+      "type": "MERRA-2 大气再分析，0.5°纬 × 0.625°经，日文件内逐小时",
+      "workflow": "earthdata",
+      "collection": "C1276812861-GES_DISC",
+      "harmony_variables": [
+        "TSOIL1",
+        "TSOIL2",
+        "TSOIL3",
+        "TSOIL4",
+        "TSOIL5",
+        "TSOIL6"
+      ]
+    },
+    {
+      "id": "m2t1nxrad",
+      "source": "NASA GES DISC",
+      "product": "M2T1NXRAD",
+      "version": "5.12.4",
+      "type": "MERRA-2 大气再分析，0.5°纬 × 0.625°经，日文件内逐小时",
+      "workflow": "earthdata",
+      "collection": "C1276812851-GES_DISC",
+      "harmony_variables": [
+        "LWGAB",
+        "LWGNT",
+        "SWGDN",
+        "SWGNT"
+      ]
+    },
+    {
+      "id": "m2t1nxslv",
+      "source": "NASA GES DISC",
+      "product": "M2T1NXSLV",
+      "version": "5.12.4",
+      "type": "MERRA-2 大气再分析，0.5°纬 × 0.625°经，日文件内逐小时",
+      "workflow": "earthdata",
+      "collection": "C1276812863-GES_DISC",
+      "harmony_variables": [
+        "PS",
+        "T2M",
+        "T2MDEW",
+        "U10M",
+        "V10M"
+      ]
+    },
+    {
+      "id": "gdas-fnl",
+      "source": "NOAA NCEP / NSF NCAR GDEX",
+      "product": "GDAS/FNL 0.25°",
+      "version": "文件名为 gdas1.fnl0p25，业务版本待核",
+      "type": "分析与短时预报",
+      "workflow": "gdas"
+    },
+    {
+      "id": "cmfd",
+      "source": "中国区域地面气象要素驱动数据集发布方",
+      "product": "CMFD",
+      "version": "2.0（V0200）",
+      "type": "融合气象驱动数据",
+      "workflow": "storage"
+    },
+    {
+      "id": "cra40-land",
+      "source": "中国气象局",
+      "product": "CRA40-Land",
+      "version": "1.0.0",
+      "type": "陆面再分析",
+      "workflow": "storage"
+    },
+    {
+      "id": "cldas",
+      "source": "中国气象局",
+      "product": "CLDAS NRT ASI 0.0625°",
+      "version": "文件头版本待确认",
+      "type": "陆面同化近实时产品",
+      "workflow": "storage"
+    },
+    {
+      "id": "forcing-grid",
+      "source": "来源待确认",
+      "product": "1 km 历史栅格交付包",
+      "version": "待确认",
+      "type": "保存资产，产品待确认",
+      "workflow": "storage"
+    },
+    {
+      "id": "model-inputs",
+      "source": "来源待确认",
+      "product": "模型输入、观测、边界和工程资料",
+      "version": "待确认",
+      "type": "研究资料",
+      "workflow": "storage"
+    }
+  ]
+}

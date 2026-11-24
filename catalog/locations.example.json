@@ -1,5 +1,10 @@
 {
   "ifs-pilot": "",
   "predict-prepared": "",
-  "forecast-drive": ""
+  "forecast-drive": "",
+  "predict-data": "",
+  "earthdata-data": "",
+  "research-volume": "",
+  "model-storage": "",
+  "forecast-history": ""
 }

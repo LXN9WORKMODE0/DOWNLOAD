@@ -2,6 +2,8 @@
 
 每台电脑克隆本仓库。共享任务以“组名＋起报年”为单位；同一项只由一台设备运行。每台电脑各自配置账户与盘符。
 
+本页的年度任务规则适用于 ECMWF MARS 分组下载。其他产品的任务、储备和续跑入口见[研究数据目录](../catalog/research/README.md)。
+
 ## 查找已有文件
 
 在仓库下创建 `.local/`，复制 `catalog/locations.example.json` 为 `.local/locations.json`。填入该机可以访问的绝对目录，未挂载的位置留空。Windows 路径可以使用正斜杠。
