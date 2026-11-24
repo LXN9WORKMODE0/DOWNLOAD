@@ -11,6 +11,7 @@
 | 存储代号 | 映射到的根目录 |
 |---|---|
 | `ifs-pilot` | 原下载器的输出目录，其下直接有 `full_range/` |
+| `ifs-annual-fc01` | `workstation-fc01` 的 MARS 年度输出根目录，其下直接有 `full_range/` |
 | `predict-prepared` | Predict 的 `data/prepared/`，包含半年拼接包和历史验证包 |
 | `forecast-drive` | 原始预报归档盘根目录，其下有 `ecmwf/`、`gefs/` 等。索引来自 2026-10-10 清查，年度覆盖待复核 |
 

@@ -1,5 +1,5 @@
 task_id,group,year,status,client,storage_id
-hydrodynamics-2024,hydrodynamics,2024,pilot_verified,,ifs-pilot
+hydrodynamics-2024,hydrodynamics,2024,running,workstation-fc01,ifs-annual-fc01
 hydrodynamics-2020,hydrodynamics,2020,planned,,
 hydrodynamics-2021,hydrodynamics,2021,planned,,
 hydrodynamics-2022,hydrodynamics,2022,planned,,
