@@ -1,0 +1,37 @@
+{
+  "client": "example-client",
+  "observed_at": "2026-01-01",
+  "scope_note": "配置示例。请用实际快照替换。",
+  "assets": [
+    {
+      "dataset": "era5",
+      "storage_id": "research-volume",
+      "relative_path": "example/era5/20080229.grib",
+      "kind": "raw",
+      "coverage": "示例盘点只看到 2008-02-29 的文件名，内部时间待核。",
+      "format": "GRIB",
+      "verification": "inventory",
+      "notes": "仅按文件名清点，尚待核对报文。",
+      "task_id": "example-era5-20080229"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "example-era5-20080229",
+      "project": "r-forcing",
+      "dataset": "era5",
+      "target": "示例目标：2008-02-29，00–23 UTC，26–31°N、103–108°E，0.25°，2 米气温，1 个日包。",
+      "client": "example-client",
+      "status": "planned",
+      "progress": {
+        "verified": 0,
+        "total": 1,
+        "unit": "日包",
+        "method": "验收时核对 24 个小时、变量和目标网格。"
+      },
+      "gaps": "待对盘点到的文件逐报文核验。",
+      "workflow": "cds",
+      "updated": "2026-01-01"
+    }
+  ]
+}

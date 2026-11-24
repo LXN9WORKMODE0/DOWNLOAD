@@ -30,6 +30,7 @@ def local_path(paths, storage, relative):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="action", required=True)
+    commands.add_parser("validate", help="check shared research catalog references offline")
     locate = commands.add_parser("locate")
     locate.add_argument("--task")
     locate.add_argument("--client", choices=sorted(path.stem for path in CLIENTS.glob("*.json")))
@@ -38,6 +39,14 @@ def main():
     register.add_argument("year", type=int)
     register.add_argument("storage", help="alias for the DataRoot used by download.py")
     args = parser.parse_args()
+    if args.action == "validate":
+        from catalog_validation import validate_catalog
+
+        try:
+            print(validate_catalog(ROOT))
+        except (ValueError, KeyError, TypeError, OSError) as exc:
+            parser.exit(1, f"Invalid catalog: {exc}\n")
+        return
     paths = json.loads(LOCATIONS.read_text(encoding="utf-8-sig")) if LOCATIONS.exists() else {}
     with ASSETS.open(encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)

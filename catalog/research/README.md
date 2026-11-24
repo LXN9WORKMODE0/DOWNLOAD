@@ -1,5 +1,7 @@
 # 研究数据目录
 
+首次接入项目、数据源或客户端时，参照[任务接入指南](../../docs/task-onboarding.md)和[客户端配置模板](../../templates/research-client.json)。
+
 [研究项目和数据集](index.json)以 ID 关联。同一产品只建一个数据集，区域、日期、变量配置及副本写在各客户端的资产或任务里。当前客户端是 [workstation-fc01](clients/workstation-fc01.json)。其中 assets 是本地储备，tasks 是已有下载范围。各产品的配置与续跑见[数据源说明](../../docs/data-sources.md)。
 
 原有 [ECMWF 年度任务](../tasks.csv)、[年度产物与历史位置](../assets.csv)和 [plan.json](../../plan.json)用于 MARS 确定性预报分组方案。新目录通过 ifs-mars 数据集与该方案关联，区域历史档案和年度分组有各自的范围及验收规则。原表里无客户端下载负责人的年度任务继续按其登记状态管理。
