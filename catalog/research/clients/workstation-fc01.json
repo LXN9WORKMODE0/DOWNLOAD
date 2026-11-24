@@ -181,8 +181,8 @@
       "kind": "archive_copy",
       "coverage": "333 个 CMA 日期文件，2024-01-01 至 12-31，日期不连续",
       "format": "ZIP",
-      "verification": "inventory",
-      "notes": "已查 ZIP 中央目录；成员内容与解包位置需要逐项比对",
+      "verification": "archive_checked",
+      "notes": "333 个 CMA 成员通过 ZIP CRC；逐报文语义及解包副本逐项比对待核",
       "task_id": "tigge-cma-history"
     },
     {
@@ -274,10 +274,10 @@
       "storage_id": "earthdata-data",
       "relative_path": "downloads/GLDAS_NOAH025_3H",
       "kind": "source_subset",
-      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "coverage": "2019-12-31 至 2026-01-01，2,194 个文件名日期，17,552 个文件；区域请求 26–31°N、103–108°E",
       "format": "NetCDF4",
       "verification": "sample_checked",
-      "notes": "首日文件头符合变量和区域，逐时目标待全量核对",
+      "notes": "本机清点文件名与数量；空间坐标和变量按已有样本核对，内容未逐件复查",
       "task_id": "earthdata-regional"
     },
     {
@@ -346,10 +346,10 @@
       "storage_id": "earthdata-data",
       "relative_path": "downloads/MERRA-2/M2I1NXASM",
       "kind": "source_subset",
-      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "coverage": "2019-12-31 至 2026-01-01，2,194 个文件名日期，2,194 个文件；区域请求 26–31°N、103–108°E",
       "format": "NetCDF4",
       "verification": "inventory",
-      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "notes": "本机清点文件名与数量；空间坐标和变量按已有样本核对，内容未逐件复查",
       "task_id": "earthdata-regional"
     },
     {
@@ -408,10 +408,10 @@
       "storage_id": "earthdata-data",
       "relative_path": "downloads/MERRA-2/M2T1NXFLX",
       "kind": "source_subset",
-      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "coverage": "2019-12-31 至 2026-01-01，2,194 个文件名日期，2,194 个文件；区域请求 26–31°N、103–108°E",
       "format": "NetCDF4",
       "verification": "inventory",
-      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "notes": "本机清点文件名与数量；空间坐标和变量按已有样本核对，内容未逐件复查",
       "task_id": "earthdata-regional"
     },
     {
@@ -470,10 +470,10 @@
       "storage_id": "earthdata-data",
       "relative_path": "downloads/MERRA-2/M2T1NXLND",
       "kind": "source_subset",
-      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "coverage": "2019-12-31 至 2026-01-01，2,194 个文件名日期，2,194 个文件；区域请求 26–31°N、103–108°E",
       "format": "NetCDF4",
       "verification": "inventory",
-      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "notes": "本机清点文件名与数量；空间坐标和变量按已有样本核对，内容未逐件复查",
       "task_id": "earthdata-regional"
     },
     {
@@ -512,10 +512,10 @@
       "storage_id": "earthdata-data",
       "relative_path": "downloads/MERRA-2/M2T1NXRAD",
       "kind": "source_subset",
-      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "coverage": "2019-12-31 至 2026-01-01，2,194 个文件名日期，2,194 个文件；区域请求 26–31°N、103–108°E",
       "format": "NetCDF4",
       "verification": "inventory",
-      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "notes": "本机清点文件名与数量；空间坐标和变量按已有样本核对，内容未逐件复查",
       "task_id": "earthdata-regional"
     },
     {
@@ -574,10 +574,10 @@
       "storage_id": "earthdata-data",
       "relative_path": "downloads/MERRA-2/M2T1NXSLV",
       "kind": "source_subset",
-      "coverage": "区域清单目标 2019-12-31 至 2026-01-01，26–31°N, 103–108°E",
+      "coverage": "2019-12-31 至 2026-01-01，2,194 个文件名日期，2,194 个文件；区域请求 26–31°N、103–108°E",
       "format": "NetCDF4",
       "verification": "inventory",
-      "notes": "区域目录可见，逐日覆盖和内容待核",
+      "notes": "本机清点文件名与数量；空间坐标和变量按已有样本核对，内容未逐件复查",
       "task_id": "earthdata-regional"
     },
     {
@@ -802,9 +802,9 @@
           136152,
           135780
         ],
-        "method": "本机 SQLite 历史快照；文件核验逐盘计"
+        "method": "本机 SQLite 历史快照；对可见盘抽样核对，另清点 ZIP 成员目录"
       },
-      "gaps": "数据库 2020 缺 76,156、2021 缺 29,946、2022 缺 96；2023–2025 旧库已完成标记，需复核全部数据",
+      "gaps": "数据库 2020 缺 76,156、2021 缺 29,946、2022 缺 96；2023–2025 旧库已完成标记，需复核全部数据；2024 年有抽样完成项未在查验路径匹配。",
       "workflow": "predict",
       "updated": "2026-11-16"
     },
@@ -859,12 +859,14 @@
           366,
           365
         ],
-        "method": "两处可访问目录按日期文件清点；另见 SQLite 旧队列",
+        "method": "2023 年 306、2024 年 343 个日期批次，在两盘核对 SQLite 字节数及 GRIB 首尾标识；报文字段待核",
         "observed_local_files_by_year": [
           306,
           343,
           0
-        ]
+        ],
+        "verified": 649,
+        "total": 1096
       },
       "gaps": "数据库每年待核 59 / 23 / 365 批；旧远端订单实时状态待核",
       "workflow": "predict",
@@ -1041,9 +1043,17 @@
       "status": "stored",
       "progress": {
         "unit": "3h 文件 / 产品×日",
-        "method": "目前按区域目录与样本登记"
+        "method": "按文件名清点 2,194 个日期，变量、文件内容按样本或待核",
+        "observed_by_product": {
+          "gldas": 17552,
+          "m2i1nxasm": 2194,
+          "m2t1nxflx": 2194,
+          "m2t1nxlnd": 2194,
+          "m2t1nxrad": 2194,
+          "m2t1nxslv": 2194
+        }
       },
-      "gaps": "区域逐产品有效空间网格、缺期和负责人需确认",
+      "gaps": "文件名总数符合清单；还需按日期、时次及各产品变量完成内容核验",
       "workflow": "earthdata",
       "updated": "2026-11-24"
     }
