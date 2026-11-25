@@ -203,7 +203,7 @@
       "coverage": "2019-12-31 全天 24 小时，18–54°N, 72–136°E 0.25°",
       "format": "GRIB",
       "verification": "verified",
-      "notes": "360 报文验收回执，现场复核 SHA-256",
+      "notes": "360 报文验收回执，现场复核 SHA-256；任务续跑时大小和 mtime 与本机回执匹配",
       "task_id": "era5-china"
     },
     {
@@ -895,18 +895,21 @@
       "dataset": "era5",
       "target": "2019-12-31 至 2026-01-01，18–54°N, 72–136°E，小时 GRIB",
       "client": "workstation-fc01",
-      "status": "inactive",
+      "status": "running",
       "progress": {
         "verified": 1,
         "total": 74,
         "unit": "月包或缓冲日",
         "hours_verified": 24,
         "hours_total": 52656,
-        "method": "逐报文验收，SHA-256 复查"
+        "current_package": "2020-01 月包",
+        "current_transfer_bytes": 14680064,
+        "current_transfer_expected_bytes": 832960080,
+        "method": "逐报文验收，SHA-256 复查；未完成 .part 和 CDS accepted 不计入 verified"
       },
-      "gaps": "2020–2025 的 72 月与 2026-01-01；1 月旧 CDS 请求状态待查",
+      "gaps": "尚缺 73 个包、52,632 小时；2020-01 包直连续传中，现有月包目标约 833 MB。11-25 23:06 CST 观测到 14 MiB 已接收。此前 HTTPS 响应中断，现按 Range 续传。传输成功、GRIB 逐报文核验完成之前均不登记该包完成。",
       "workflow": "cds",
-      "updated": "2026-11-16"
+      "updated": "2026-11-25"
     },
     {
       "id": "era5-land-sample",

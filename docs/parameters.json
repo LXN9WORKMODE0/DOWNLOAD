@@ -317,7 +317,11 @@
     "format": "grib",
     "tasks": 74,
     "hours": 52656,
-    "request_mode": "sequential_calendar_month"
+    "request_mode": "sequential_calendar_month",
+    "network_mode": "direct_https",
+    "proxy": false,
+    "client": "workstation-fc01",
+    "storage_id": "earthdata-data"
   },
   "harmony": {
     "bbox": [
