@@ -1,6 +1,8 @@
-# DOWNLOAD 下载任务与数据目录
+# DOWNLOAD 下载任务台账
 
-新增任务请从[任务接入指南](docs/task-onboarding.md)开始。指南提供登记位置、客户端配置模板、核验方法及交接步骤。
+**[查看已发出的下载任务](docs/tasks/README.md)** · [登记一项任务](docs/task-onboarding.md) · [查找已有数据](catalog/research/README.md) · [查阅下载参数与经验](docs/data-sources.md)
+
+这里按一次下载指令记录目标、进度、存放位置和可以复用的配置。新需求先查已有覆盖，再确定需要补取的部分。本项目使用同一 ECMWF 账户时，每次只执行一个需要该账户的下载请求，已有订单先查状态再续跑。
 
 ## 全国 ERA5 再分析任务
 
@@ -10,13 +12,13 @@
 
 范围为 2020—2025 年，前四组采用中国及周边矩形 72–137°E、0–55°N，海运组的大气场和海浪场均取全球。各组规则输出网格 0.25°，每天 00、12 UTC 两次起报。参数编号、分组、业务时效分界和步长见 `plan.json`。
 
-## 多客户端工作入口
+## 任务与数据明细
 
 | 要查什么 | 文件 |
 |---|---|
-| 哪台设备在下哪一年 | [年度任务表](catalog/tasks.csv) |
+| MARS 各组各年的计划及执行记录 | [年度任务表](catalog/tasks.csv) |
 | 已有哪些文件，放在哪里 | [数据位置索引](catalog/assets.csv) |
-| 如何登记磁盘、领取任务和交接 | [多客户端使用说明](docs/clients.md) |
+| 如何定位年度文件、登记验收结果 | [年度数据登记说明](docs/clients.md) |
 | 多来源研究项目、数据储备与下载任务 | [研究数据目录](catalog/research/README.md) |
 | 如何复现测速、解释耗时 | [测速说明](docs/benchmark.md) · [四单实测结果](benchmarks/hydrodynamics-2024.json) |
 
