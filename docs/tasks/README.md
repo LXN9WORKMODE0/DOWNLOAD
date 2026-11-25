@@ -16,6 +16,8 @@
 
 ## 已下载的数据与历史任务
 
+[打开已有数据资产目录](../assets/README.md)，按产品查看实际时空覆盖、变量、下载日期与文件位置。
+
 | 数据 | 已有哪些记录 | 如何判断能否直接复用 |
 |---|---|---|
 | 全国 NASA Earthdata | GLDAS 已验收 17,552 个三小时文件，MERRA-2 五个产品各已验收 2,194 个日文件。六个产品均有各自的完成记录，存储根为 `earthdata-data`。 | 按 Harmony 清单和逐文件回执比对日期、变量和区域。[产品与存放位置](../../catalog/research/clients/workstation-fc01.json) · [获取参数](../data-sources.md#earthdata) |

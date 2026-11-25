@@ -1,5 +1,7 @@
 # 研究数据目录
 
+[浏览数据资产与覆盖图](../../docs/assets/README.md)。产品页汇总实际时间和空间覆盖、变量、下载日期及各存储副本。
+
 按下载指令浏览[任务总表](../../docs/tasks/README.md)。登记项目、数据源和产物时，参照[任务接入指南](../../docs/task-onboarding.md)和[客户端配置模板](../../templates/research-client.json)。
 
 [研究项目和数据集](index.json)以 ID 关联。同一产品只建一个数据集，区域、日期、变量配置及副本写在各客户端的资产或任务里。当前客户端是 [workstation-fc01](clients/workstation-fc01.json)。其中 assets 是本地储备，tasks 是已有下载范围。各产品的配置与续跑见[数据源说明](../../docs/data-sources.md)。
