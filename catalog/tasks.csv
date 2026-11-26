@@ -1,9 +1,9 @@
 task_id,group,year,status,client,storage_id
-hydrodynamics-2024,hydrodynamics,2024,running,workstation-fc01,ifs-annual-fc01
-hydrodynamics-2020,hydrodynamics,2020,planned,,
-hydrodynamics-2021,hydrodynamics,2021,planned,,
-hydrodynamics-2022,hydrodynamics,2022,planned,,
-hydrodynamics-2023,hydrodynamics,2023,planned,,
+hydrodynamics-2024,hydrodynamics,2024,annual_verified,workstation-fc01,ifs-annual-fc01
+hydrodynamics-2020,hydrodynamics,2020,running,workstation-fc01,ifs-annual-fc01
+hydrodynamics-2021,hydrodynamics,2021,running,workstation-fc01,ifs-annual-fc01
+hydrodynamics-2022,hydrodynamics,2022,running,workstation-fc01,ifs-annual-fc01
+hydrodynamics-2023,hydrodynamics,2023,running,workstation-fc01,ifs-annual-fc01
 hydrodynamics-2025,hydrodynamics,2025,planned,,
 hydrology-2024,hydrology,2024,planned,,
 hydrology-2020,hydrology,2020,planned,,

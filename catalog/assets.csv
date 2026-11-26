@@ -13,3 +13,4 @@ legacy-source,forecast-drive,ecmwf/data/raw/ecmwf_archive/scda,historical_invent
 legacy-source,forecast-drive,gefs/data/raw/gefs,historical_inventory,,,,2026-10-10
 legacy-source,forecast-drive,gfs.zip,historical_inventory,,,,2026-10-10
 legacy-source,forecast-drive,tigge.zip,historical_inventory,,,,2026-10-10
+hydrodynamics-2024,ifs-annual-fc01,full_range/hydrodynamics/surface/2024/hydrodynamics_surface_2024.grib,annual_verified,42375642480,366984,732,2024 UTC initializations
