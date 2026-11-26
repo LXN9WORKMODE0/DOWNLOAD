@@ -4,9 +4,17 @@
 
 ## ifs-mars
 
-公开的 ECMWF 年度分组以 [plan.json](../plan.json) 定义组别、时段、区域、层次、变量和步长。使用 [仓库入口](../README.md) 的 run.ps1／download.py，经 ECMWF Web API 向 MARS 下单。使用有档案权限的账户，凭据从本机 .ecmwfapirc 或 .env 读取。先预览，按目录成本选择每批起报数，逐单提交。年度验收需要分组所需产品流均有相符的 GRIB 和 verified.json，再用 catalog.py register-year 登记。
+公开的 ECMWF 年度分组以 [plan.json](../plan.json) 定义组别、时段、区域、层次、变量和步长。使用 [仓库入口](../README.md) 的 run.ps1／download.py，经 ECMWF Web API 向 MARS 下单。使用有档案权限的账户，凭据从本机 .ecmwfapirc 或 .env 读取。先预览，按目录成本选择每批起报数。年度验收需要分组所需产品流均有相符的 GRIB 和 verified.json，再用 catalog.py register-year 登记。
 
 本机早期 103–108°E、26–31°N MARS oper/scda 任务走 predict 工作流。oper 对应 00/12 UTC，scda 对应 06/18 UTC，区域 0.25°，配置以该任务原请求为准。两类产物都关联 ifs-mars。
+
+### 水动力年度订单预提交
+
+当前批次在 ECMWF MARS 处理完成并开始传输 GRIB 时，下载器在后台查询下一批的目录成本并提交数据订单。传输和下一批的远端排队、处理可以重叠。每次最多预提交一笔数据订单，可在后台查询其状态。本机每次传输一批，当前批次通过 GRIB 核验后再接手下一批。目录查询、下单、状态查询和文件传输均使用直连。
+
+远端订单回执保存在年份目录的 `*.pending.json` 中。重启时读取已有回执并接续原订单。`timings.jsonl` 的 `order_submitted_utc` 记录下单时间，`submission_lead_s` 记录下单到本机接手的间隔，`pickup_to_ready_s` 记录接手后到确认远端结果就绪的时间。
+
+2024 年实测中，12 月订单在 11 月 13–30 日批次传输期间提交，比本机接手早约 3 小时 30 分。接手后约 1.6 秒确认结果就绪。截至 2026 年 11 月 26 日，预提交实现在运行下载的工作站版本中，GitHub 主分支登记此流程。
 
 ## ifs-ens
 
